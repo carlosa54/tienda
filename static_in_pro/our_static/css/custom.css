@@ -1,0 +1,59 @@
+.product-img {
+	position: relative;
+    float: left;
+    width:  100px;
+    height: 100px;
+}
+.text-align-center {
+	text-align: center;
+}
+
+.og-price {
+	color: red;
+	text-decoration: line-through;
+}
+
+.fa-navbar-cart {
+	font-size:16px;
+	vertical-align: middle;
+}
+
+.container-alert-flash {
+	position: absolute;
+    top: 10px;
+    z-index: 50000;
+    width: 100%;
+    right: 0%;
+    margin: 0px;
+    display:none;
+}
+.carousel .item {
+	height: 450px;
+}
+
+
+/*CSS del header y los logos*/
+
+header {font-size:12px; font-weight:700; margin:0; padding: 15px 0 15px 15px; background-color: #fff;}
+header h1 a:hover {color:#40a849; margin:0;}
+header h1 {margin:0;}
+header div.logo {float:left;}
+header div.logo h1 {margin:0;}
+header .logo a, header .logo a img {display:block; margin:0; padding:0;}
+header .cart-summary {position:relative;margin-right:10px;}
+header .contact-info {padding-right:10px; margin-right:10px; border-right:1px solid #ccc; font-weight: 300;}
+header .cart-summary h3 {margin:5px 0 !important;font-weight: 300;}
+header .cart-summary .total_price {padding-right:18px;}
+
+header .contact-info {text-align:right; line-height:18px;color: #777}
+header .contact-info span {display:block;}
+
+.header {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+
+/* clearfix */
+.clearfix:before, .clearfix:after {content: "\0020"; display: block; height: 0; visibility: hidden;}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+
+.fr { float: right; }
+

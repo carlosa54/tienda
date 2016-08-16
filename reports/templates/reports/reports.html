@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>All Orders</h1>
+{% for order in object_list %}
+{{order}}
+{% endfor %}
+{% endblock %}

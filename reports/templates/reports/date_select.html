@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block jquery %}
+	$("#datepicker").daterangepicker({
+	alwaysShowCalendars: true,
+  	locale: {
+      format: 'YYYY-MM-DD'
+    },
+    startDate: moment().format('YYYY-MM-DD')
+},
+function(start, end, label) {
+    $("#datepickerStart").val(start.format('YYYY-MM-DD'));
+    $("#datepickerEnd").val(end.format('YYYY-MM-DD'));
+}
+);
+
+{% endblock %}
+
+{% block content %}
+
+
+<form action="{% url 'audit' %}" method="GET" role="form">
+	<legend>Orders Audit</legend>
+
+	<div class="form-group">
+		<label for="">Choose Dates</label>
+		<input class="form-control" label='Start date'type="text" id="datepicker">
+		<input type="hidden" name='start'label='Start date'type="text" id="datepickerStart">
+		<input type="hidden" name='end' label="End date" type="text" id="datepickerEnd">
+	</div>
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% if orders%}
+<h1>Orders that differ from our database</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Order id</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      	{% for order in orders %}
+      	<tr>
+			<td><a href="{% url 'order_detail' pk=order.id%}">{{ order.order_id}}</a></td>
+        	<td>{{ order.order_total}}</td>
+      	</tr>
+		{% endfor %}
+
+
+    </tbody>
+  </table>
+{% elif success %}
+<h1>All orders were proccessed successfully</h1>
+{% endif %}
+{% endblock %}

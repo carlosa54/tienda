@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block carousel %}
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="" data-slide-to="1"></li>
+    <li data-target="" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    {% for img in object.frontimage_set.all %}
+    {% if forloop.counter = 1 %}
+      <div class="item active"> 
+    {% else %}
+      <div class="item">
+    {% endif %}
+      <img width="100%" src="{{ img.image.url }}">
+    </div>
+    {% endfor %}
+  </div>
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="icon-prev" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="icon-next" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h3>{{ object }}</h3>
+
+<div class="row">
+{% for object in object.product_set.all %}
+	<div class="col-xs-4">
+	<div class="thumbnail text-center product">
+        {% if object.get_image_url %}
+        <a href="{{ object.get_absolute_url }}"><img  id='img' src="{{ object.get_image_url }}"></a></br>
+        {% endif %}
+        <h4><a href="{{ object.get_absolute_url }}">{{ object.title}}</a></h4>
+    </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock%}

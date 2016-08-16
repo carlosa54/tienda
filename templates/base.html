@@ -1,0 +1,100 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block head_title %}Positive Musa{% endblock %}</title>
+
+    {% include 'head_css.html' %}
+
+      <style>
+      {% block style %}{% endblock %}
+      </style>
+
+
+
+  </head>
+  <header class="header clearfix hidden-xs hidden-sm">
+  </br>
+      <div class="">
+        <a href="/" class="shop_logo col-md-2"><img class= "png_bg"src="{% static "img/psLogo.png"%}" height="75" width="75" /></a>
+
+        <a href="/" class="shop_logo col-md-2"><img class= "png_bg"src="{% static "img/psPalmas.png"%}" height="75" width="120" /></a>
+
+        <a href="/" class="shop_logo col-md-2"><img class= "png_bg"src="{% static "img/vLogo.png"%}" height="75" width="75" /></a>
+      </div><!-- /.logo -->
+
+      <div style= "margin-top: 20px;"class="cy fr clearfix">
+        <div class="fr cart-summary">
+          <span class="cart">
+            <h3>
+              <a href="/cart">
+                <span class="cart-total-items clearfix">
+                  
+                  <span class="total_price fl" id="total-price">${{request.session.cart_total }}</span>
+                  
+                </span>
+              </a>
+            </h3>
+          </span>
+          <div id="item-added" style="display:none;">'Item' was added to your cart.</div>
+        </div> <!-- /.cart-summary -->
+        <div class="fr contact-info">
+          <span class="tel">787-910-9565</span>
+          <span class="email"><a href="mailto:questions@positivemusa.com">questions@positivemusa.com</a></span>
+        </div>
+      </div> 
+        
+    </header>
+  <body>
+  {% include 'navbar.html' %}
+  <div class= "container">
+    
+  {% if messages %}
+    <div class="alert alert-success text-center">
+      {% for message in messages %}
+      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p><br/>
+      {% endfor %}
+    </div>
+  {% endif %}
+  </div>
+
+{% block jumbotron %}
+          
+            {% endblock %}
+
+            {% block carousel %}
+            {% endblock %}
+    <div class="container">
+            
+
+          
+            {% block content %}
+
+            {% endblock %}
+              
+
+    </div> <!-- /container -->
+
+    {% include "javascript.html" %}
+
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}
+      
+      {% endblock %}
+    })
+
+    </script>
+    
+    
+  </body>
+</html>

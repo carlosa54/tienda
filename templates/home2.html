@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<header>
+ 
+</header>
+<body>
+	<div class="content-table"
+<div class="container-fluid">
+
+
+
+<center class="bottom">
+	<a href="{% url 'store_detail' slug='vennuck'%}">
+  		<div class="button-fill orange">
+    		<div class="button-text">Vennuck Shop</div>
+    		<div class="button-inside">
+      			<div class="inside-text">Vennuck&nbspShop</div>
+    		</div>
+  		</div>
+  	</a>
+  	 <a href="{% url 'store_detail' slug='positivemusa'%}">
+  		<div class="button-fill grey">
+    		<div class="button-text">Positive Musa Shop</div>
+    		<div class="button-inside">
+      			<div class="inside-text">Positive&nbspMusa&nbspShop</div>
+    		</div>
+  		</div>
+  	</a>
+</center>
+
+
+</div>
+</div>
+</body>
+<link href="{% static 'css/background.css' %}" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+ $(".button-fill").hover(function() {
+   $(this).children(".button-inside").addClass('full');
+ }, function() {
+   $(this).children(".button-inside").removeClass('full');
+ });
+</script>
+
+</html>

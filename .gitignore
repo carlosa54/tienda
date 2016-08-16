@@ -1,2 +1,3 @@
 tienda/settings/db_password.py
 static_in_env/
+.env

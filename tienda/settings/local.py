@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'registration',
     'rest_framework',
     'corsheaders',
+    'django_extensions',
     #my apps
     'newsletter',
     'products',

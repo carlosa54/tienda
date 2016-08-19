@@ -16,7 +16,6 @@ import os
 
 import dj_database_url
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
@@ -35,7 +34,7 @@ ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'carlosarg54@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+#EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -65,6 +64,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'corsheaders',
     'django_extensions',
+    'storages',
     #my apps
     'newsletter',
     'products',
@@ -147,8 +147,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
+#Old static url without s3
+#STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static_in_env", "static_root")
 
@@ -158,8 +158,8 @@ STATICFILES_DIRS = (
     #os.path.join(BASE_DIR, "static_in_env"),
     #'/var/www/static/',
 )
-
-MEDIA_URL = '/media/'
+# Old media url without s3
+#MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "static_in_env", "media_root")
 
 
@@ -203,6 +203,31 @@ JWT_AUTH = {
     "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=30000),
     "JWT_ALLOW_REFRESH": True,
 }
+
+#S3 settings
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+AWS_HEADERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'Cache-Control': 'max-age=94608000',
+}
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = 'positivemusa'
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
+# refers directly to STATIC_URL. So it's safest to always set it.
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
 
 
 

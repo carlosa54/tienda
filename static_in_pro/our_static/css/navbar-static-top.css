@@ -54,6 +54,10 @@ body {
   background-color: #D5E7FF !important;
 }
 
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
 /*.navbar-toggle {
   background-color: #20889F !important;
 }*/

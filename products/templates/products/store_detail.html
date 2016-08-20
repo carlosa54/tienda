@@ -4,9 +4,13 @@
 {% block carousel %}
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="" data-slide-to="1"></li>
-    <li data-target="" data-slide-to="2"></li>
+    {% for obj in object.frontimage_set.all %}
+    {% if forloop.counter = 1 %}
+    <li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+    {% else %}
+    <li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}"></li>
+    {% endif %}
+    {% endfor %} 
   </ol>
   <div class="carousel-inner" role="listbox">
     {% for img in object.frontimage_set.all %}
@@ -15,7 +19,7 @@
     {% else %}
       <div class="item">
     {% endif %}
-      <img width="100%" src="{{ img.image.url }}">
+      <img width="100%" src="{{ img.image.url }}"\>
     </div>
     {% endfor %}
   </div>

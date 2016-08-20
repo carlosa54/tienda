@@ -12,7 +12,7 @@ if __name__ == "__main__":
 	if ENVIRONMENT == 'STAGING':
 		settings = 'staging'
 	elif ENVIRONMENT == 'PRODUCTION':
-		settings = 'production'
+		settings = 'local'
 	else:
 		settings = 'development'
 		

@@ -55,16 +55,16 @@ body {
 }
 
 .navbar-positive .navbar-toggle:focus {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 /* Remove gap between navbar and dropdown on mobile devices */
 @media (min-width: 768px) {
-    .navbar-positive .dropdown-menu {
+    .navbar-positive .navbar-collapse {
         border: none;
         margin-top: -1px;
     }
-    .navbar-vennuck .dropdown-menu {
+    .navbar-vennuck .navbar-collapse {
         border: none;
         margin-top: -1px;
     }

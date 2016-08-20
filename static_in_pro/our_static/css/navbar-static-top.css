@@ -27,6 +27,13 @@ body {
 
 }
 
+.navbar-positive .navbar-toggle {
+  background-color: #20889F !important;
+}
+
+.navbar-positive .navbar-toggle .icon-bar {
+  background-color: #C3D5EB; 
+}
 .navbar-default .navbar-brand {
   color: #FFF;
 }
@@ -44,9 +51,9 @@ body {
 }
 
 .navbar-toggle:hover {
-	background-color: #1A5F23 !important;
+  background-color: #D5E7FF !important;
 }
 
-.navbar-toggle {
-	background-color: #0E3D14 !important;
-}
+/*.navbar-toggle {
+  background-color: #20889F !important;
+}*/

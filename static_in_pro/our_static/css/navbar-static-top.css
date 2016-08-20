@@ -60,7 +60,11 @@ body {
 
 /* Remove gap between navbar and dropdown on mobile devices */
 @media (min-width: 768px) {
-    .navbar-default .dropdown-menu {
+    .navbar-positive .dropdown-menu {
+        border: none;
+        margin-top: -1px;
+    }
+    .navbar-vennuck .dropdown-menu {
         border: none;
         margin-top: -1px;
     }

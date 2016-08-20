@@ -59,7 +59,7 @@ body {
 }
 
 /* Remove gap between navbar and dropdown on mobile devices */
-@media (min-width: 768px) {
+@media (min-width: 320px) {
     .navbar-positive .navbar-collapse {
         border: none;
         margin-top: -1px;

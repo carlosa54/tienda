@@ -54,8 +54,16 @@ body {
   background-color: #D5E7FF !important;
 }
 
-.navbar-default .navbar-toggle:focus {
+.navbar-positive .navbar-toggle:focus {
     background-color: transparent;
+}
+
+/* Remove gap between navbar and dropdown on mobile devices */
+@media (min-width: 768px) {
+    .navbar-default .dropdown-menu {
+        border: none;
+        margin-top: -1px;
+    }
 }
 
 /*.navbar-toggle {

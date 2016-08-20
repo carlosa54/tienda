@@ -37,15 +37,15 @@ if not settings.DEBUG:
 	DEBUG = False
 
 	ADMINS = (
-		("Justin", "codingforentrepreneurs@gmail.com"),
+		("Carlos", "carlosarg54@gmail.com"),
 
 		)
 
-	ALLOWED_HOSTS = ['cfedeploy.webfactional.com', 'trydjango.com', 'www.trydjango.com']
+	ALLOWED_HOSTS = ['positivemusa.herokuapp.com']
 	#purchasing domain name http://name.com
 
 	EMAIL_HOST = 'smtp.gmail.com'
-	EMAIL_HOST_USER = 'yourgmail@gmail.com'
+	EMAIL_HOST_USER = 'carlos@gmail.com'
 	EMAIL_HOST_PASSWORD = 'yourpassword'
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True

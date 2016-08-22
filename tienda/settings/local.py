@@ -205,7 +205,6 @@ JWT_AUTH = {
 }
 
 #S3 settings
-
 if os.environ["ENVIRONMENT"] == "DEVELOPMENT":
     MEDIA_URL = '/media/'
     STATIC_URL = '/static/'
@@ -218,8 +217,6 @@ else:
             'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
             'Cache-Control': 'max-age=94608000',
     }
-    AWS_ACCESS_KEY_ID = ''
-    AWS_SECRET_ACCESS_KEY = ''
     AWS_STORAGE_BUCKET_NAME = 'positivemusa'
 
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME

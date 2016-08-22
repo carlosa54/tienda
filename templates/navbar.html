@@ -1,9 +1,9 @@
    {% load staticfiles %}
 
    <!-- Static navbar -->
-    {% if object.slug == 'vennuck'%}
+    {% if object.slug == 'vennuck' or object.store.all.0.slug == 'vennuck' or store == 'vennuck' %}
       <nav class="navbar navbar-default navbar-vennuck navbar-static-top">
-    {% elif object.slug == 'positivemusa'%}
+    {% elif object.slug == 'positivemusa' or object.store.all.0.slug == 'positivemusa' or store == 'positivemusa' %}
       <nav class="navbar navbar-default navbar-positive navbar-static-top">
     {% else %}
       <nav class="navbar navbar-default navbar-static-top">
@@ -16,9 +16,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          {% if object.slug == 'vennuck'%}
+          {% if object.slug == 'vennuck' or object.store.all.0.slug == 'vennuck' or store == 'vennuck' %}
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/vLogo.png' %}" height="38" width="38" style="margin-top: -7px;"/></a>
-          {% elif object.slug == 'positivemusa'%}
+          {% elif object.slug == 'positivemusa' or object.store.all.0.slug == 'positivemusa' or store == 'positivemusa' %}
            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/positivewlogo.png' %}" height="38" width="38" style="margin-top: -7px;"/></a>
           {% endif %}
           
@@ -39,7 +39,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-navbar-cart"> <span id='cart-count-badge' class='badge'>{{request.session.cart_item_count }}</span></i></a>
+              <a href="{% url 'cart' %}?store={{ object.slug }}"><i class="fa fa-shopping-cart fa-navbar-cart"> <span id='cart-count-badge' class='badge'>{{request.session.cart_item_count }}</span></i></a>
             </li>
           {% if request.user.is_authenticated %}
           <li><a href="{% url 'orders' %}">Orders</a></li> 

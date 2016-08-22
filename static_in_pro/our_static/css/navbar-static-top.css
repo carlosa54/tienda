@@ -51,25 +51,9 @@ body {
 }
 
 .navbar-toggle:hover {
-  background-color: #D5E7FF !important;
-}
-
-.navbar-positive .navbar-toggle:focus {
-    background-color: transparent !important;
-}
-
-/* Remove gap between navbar and dropdown on mobile devices */
-@media (min-width: 320px) {
-    .navbar-positive .navbar-collapse {
-        border: none;
-        margin-top: -1px;
-    }
-    .navbar-vennuck .navbar-collapse {
-        border: none;
-        margin-top: -1px;
-    }
+	background-color: #D5E7FF !important;
 }
 
 /*.navbar-toggle {
-  background-color: #20889F !important;
+	background-color: #20889F !important;
 }*/

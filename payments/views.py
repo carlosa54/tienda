@@ -4,6 +4,7 @@ import paypalrestsdk
 from orders.models import Order
 from orders.mixins import CartOrderMixin
 import json
+from django.contrib import messages
 # Create your views here.
 
 class PaymentCheckoutView(CartOrderMixin, TemplateView):
@@ -29,7 +30,6 @@ class PaymentCheckoutView(CartOrderMixin, TemplateView):
 		print 'hello im in PayPal payment'
 		order_id = request.POST.get("order_id")
 		order = Order.objects.get(id=order_id)
-		order.mark_completed()
 		template = self.template_name
 		items = {"items": [] }
 		for item in order.cart.cartitem_set.all():
@@ -76,6 +76,11 @@ class PaymentCheckoutView(CartOrderMixin, TemplateView):
 				if link.method == "REDIRECT":
 					redirect_url = str(link.href)
 					print("Redirect for approval: %s" % (redirect_url))
+			order.mark_completed()
+			messages.success(request, "Thank you for your order.")
+			del request.session["cart_id"]
+			del request.session["order_id"]
+			del request.session["cart_total"]
 			return redirect(redirect_url)
   			print("Payment created successfully")
 		else:

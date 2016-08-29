@@ -78,11 +78,10 @@ header .cart-summary {position:relative;margin-right:10px;}
 header .contact-info {padding-right:10px; margin-right:10px; border-right:1px solid #ccc; font-weight: 300;}
 header .cart-summary h3 {margin:5px 0 !important;font-weight: 300;}
 header .cart-summary .total_price {padding-right:18px;}
-
 header .contact-info {text-align:right; line-height:18px;color: #777}
 header .contact-info span {display:block;}
 
-.header {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+.header {margin-bottom:10px;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
 
 /* clearfix */
 .clearfix:before, .clearfix:after {content: "\0020"; display: block; height: 0; visibility: hidden;}

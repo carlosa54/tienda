@@ -48,34 +48,35 @@ braintree.setup(clientToken, "dropin", {
 </div>
 
 {% else %}
-
+<div class="row">
+<div class='col-sm-4'></div>
 <div class='col-sm-4 text-center'>
 
 {% include "orders/order_summary_short.html" with order=order %}
 
 
-<p>
+<!-- <p>
  <a href='{% url "order_address" %}'>Change an Address</a>
-</p>
-<br/>
+</p> -->
 
 
-
+	{% if order.status != 'paid' %}
+<!-- 	<h3>Checkout:</h3> -->
+	{% include "payments/pay.html" with order=order %}
+<!-- <form id="checkout"  method='POST' action="{% url 'checkout_final' %}">{% csrf_token %}
+<input type='hidden' name='payment_token' value='ABC' />
+<div id="payment-form"></div>
+<p><b><button type='submit'>Complete Order</button></b> -->
+{% endif %}
 
 
 
 
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-4"></div>
 
-	{% if order.status != 'paid' %}
-	<h3>Checkout:</h3>
-<form id="checkout"  method='POST' action="{% url 'checkout_final' %}">{% csrf_token %}
-<!-- <input type='hidden' name='payment_token' value='ABC' /> -->
-<div id="payment-form"></div>
-<p><b><button type='submit'>Complete Order</button></b>
-{% endif %}
+
 </p>
 </form>
 

@@ -73,6 +73,7 @@ INSTALLED_APPS = (
     'reports',
     'django_filters',
     'dashboard',
+    'payments',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -203,6 +204,9 @@ JWT_AUTH = {
     "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=30000),
     "JWT_ALLOW_REFRESH": True,
 }
+PAYPAL_MODE='sandbox'
+PAYPAL_CLIENT_ID= 'ASluobkrXG6eJFzWZrsOGYcGRsX4nCccaB4Cu-5LNQCoNCECtQWMVj651zC5450UPE5dESuUXEOk1xhT'
+PAYPAL_CLIENT_SECRET='ED5GGT1at1Sa72_ptLqM9FawEic_n58r6zHnQK_V1K1iKlPMiD8y1oFu7L0lmoV8rjF5lshOVOUg6ced'
 
 #S3 settings
 if os.environ["ENVIRONMENT"] == "DEVELOPMENT":

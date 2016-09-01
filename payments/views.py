@@ -66,9 +66,8 @@ class PaymentCheckoutView(CartOrderMixin, TemplateView):
 					      }
 					    },
 					    "item_list": items,
-					    "description": "The payment transaction description.",
+					    #"description": "The payment transaction description.",
 					    "invoice_number": str(order.id),
-					    "custom": "merchant custom data"
 					  }]
 			})
 		if payment.create():

@@ -6,20 +6,20 @@
 
 
 
-<script>
-{% block jquery %}
-var clientToken = "{{ client_token }}";
-braintree.setup(clientToken, "dropin", {
-  container: "payment-form"
-});
-{% endblock %}
-</script>
+// <script>
+// {% block jquery %}
+// var clientToken = "{{ client_token }}";
+// braintree.setup(clientToken, "dropin", {
+//   container: "payment-form"
+// });
+// {% endblock %}
+// </script>
 
 {% block content %}
 
-
-{% if not user_can_continue %}
-<div class='col-sm-6'>
+<!-- 
+{% if not user_can_continue %} -->
+<!-- <div class='col-sm-6'>
 <p class='lead'>Continue as Guest</p>
 
 
@@ -45,9 +45,9 @@ braintree.setup(clientToken, "dropin", {
 <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
 </p>
 
-</div>
+</div> -->
 
-{% else %}
+<!-- {% else %} -->
 <div class="row">
 <div class='col-sm-4'></div>
 <div class='col-sm-4 text-center'>
@@ -83,8 +83,8 @@ braintree.setup(clientToken, "dropin", {
 </div>
 
 
-
-{% endif %}
+<!-- 
+{% endif %} -->
 
 
 {% endblock %}

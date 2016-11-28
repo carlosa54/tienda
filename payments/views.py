@@ -66,8 +66,9 @@ class PaymentCheckoutView(CartOrderMixin, TemplateView):
 					      }
 					    },
 					    "item_list": items,
-					    #"description": "The payment transaction description.",
+					    "description": "The payment transaction description.",
 					    "invoice_number": str(order.id),
+					    "custom": "merchant custom data"
 					  }]
 			})
 		if payment.create():
@@ -76,12 +77,12 @@ class PaymentCheckoutView(CartOrderMixin, TemplateView):
 					redirect_url = str(link.href)
 					print("Redirect for approval: %s" % (redirect_url))
 			order.mark_completed()
-			messages.success(request, "Thank you for your order.")
 			del request.session["cart_id"]
 			del request.session["order_id"]
 			del request.session["cart_total"]
 			return redirect(redirect_url)
   			print("Payment created successfully")
+  			messages.success(request, "Thank you for your order.")
 		else:
   			print(payment.error)
 

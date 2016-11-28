@@ -1,6 +1,38 @@
+{% extends "base.html" %}
+{% block content%}
+
+<div class="row">
+<div class='col-sm-4'></div>
+<div class='col-sm-4 text-center'>
+
+{% include "orders/order_summary_short.html" with order=order %}
+
+
+<!-- <p>
+ <a href='{% url "order_address" %}'>Change an Address</a>
+</p> -->
+
+</div>
+	{% if order.status != 'paid' %}
+
 <form id="myContainer" method="post" action="{% url 'payment' %}"> {% csrf_token %} 
 <input type='hidden' name="order_id" value='{{ order.id }}' />
 </form>
+
+	{% endif %}
+
+
+
+
+</div>
+
+<div class="col-sm-4"></div>
+
+
+</p>
+</form>
+
+{% endblock %}
 <script>
 window.paypalCheckoutReady = function() {
     paypal.checkout.setup('ASluobkrXG6eJFzWZrsOGYcGRsX4nCccaB4Cu-5LNQCoNCECtQWMVj651zC5450UPE5dESuUXEOk1xhT', {
